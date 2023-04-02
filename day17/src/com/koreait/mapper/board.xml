@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+	<select id="getBoardCnt" resultType="_int">
+		SELECT COUNT(*) FROM TEST_BOARD
+	</select>
+	<select id="getBoardCntWithKey" resultType="_int" parameterType="string">
+		SELECT COUNT(*) FROM TEST_BOARD
+		WHERE BOARDTITLE LIKE ('%${keyword}%')
+	</select>
+	
+	<select id="getBoardList" parameterType="hashmap" resultType="boarddto">
+		SELECT * FROM
+			(SELECT ROWNUM R, D.* FROM
+				(SELECT * FROM TEST_BOARD ORDER BY BOARDNUM DESC) D
+			) B
+		WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="getBoardListWithKey" parameterType="hashmap" resultType="boarddto">
+		SELECT * FROM
+			(SELECT ROWNUM R, D.* FROM
+				(SELECT * FROM TEST_BOARD WHERE BOARDTITLE LIKE ('%${keyword}%') 
+				ORDER BY BOARDNUM DESC) D
+			) B
+		WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="getDetail" parameterType="_int" resultType="boarddto">
+		SELECT * FROM TEST_BOARD WHERE BOARDNUM = ${boardnum}
+		<!--
+			MyBatis에서 #심볼은 무슨 값이든 문자열로 그 자리에 적용시킨다. 
+				SELECT * FROM TEST_BOARD WHERE BOARDNUM = '53'
+			MyBatis에서 $심볼은 넘어온 값의 타입 그대로 쿼리문에 적용시킨다.
+				SELECT * FROM TEST_BOARD WHERE BOARDNUM = 53
+				
+				SELECT * FROM TEST_BOARD WHERE ${column} = #{data}
+				column : "BOARDNUM" / data : 53		로 파라미터를 넘겼을 때
+					SELECT * FROM TEST_BOARD WHERE BOARDNUM = '53'
+				column : "USERID" / data : "apple"	로 파라미터를 넘겼을 때
+					SELECT * FROM TEST_BOARD WHERE USERID = 'apple'
+		-->
+	</select>
+	<select id="getLastNum" parameterType="string" resultType="_int">
+		SELECT MAX(BOARDNUM) FROM TEST_BOARD WHERE USERID=#{userid}
+	</select>
+	<select id="getReplies" parameterType="_int" resultType="replydto">
+		SELECT * FROM TEST_REPLY WHERE BOARDNUM=#{boardnum} ORDER BY REPLYNUM DESC
+	</select>
+	
+	
+	<update id="updateReadCount" parameterType="_int">
+		UPDATE TEST_BOARD SET READCOUNT = READCOUNT+1 WHERE BOARDNUM=#{boardnum}
+	</update>
+	<update id="updateBoard" parameterType="boarddto">
+		UPDATE TEST_BOARD SET BOARDTITLE=#{boardtitle}, BOARDCONTENTS = #{boardcontents}
+		WHERE BOARDNUM = #{boardnum}
+	</update>
+	<update id="modifyReply" parameterType="hashmap">
+		UPDATE TEST_REPLY SET REPLYCONTENTS = #{replycontents}
+		WHERE REPLYNUM = #{replynum}
+	</update>
+	
+	<insert id="insertBoard" parameterType="boarddto">
+		INSERT INTO WEB.TEST_BOARD
+		(BOARDNUM, BOARDTITLE, BOARDCONTENTS, USERID, REGDATE, READCOUNT)
+		VALUES(BOARD_SEQ.NEXTVAL, #{boardtitle}, #{boardcontents},#{userid},SYSDATE, 0)
+	</insert>
+	<insert id="insertReply" parameterType="replydto">
+		INSERT INTO WEB.TEST_REPLY
+		(REPLYNUM, USERID, BOARDNUM, REPLYCONTENTS, REGDATE)
+		VALUES(REPLY_SEQ.NEXTVAL,#{userid},#{boardnum},
+		#{replycontents},SYSDATE)
+	</insert>
+	
+	<delete id="removeBoard" parameterType="_int">
+		DELETE FROM TEST_BOARD WHERE BOARDNUM=#{boardnum}
+	</delete>
+	<delete id="deleteReply" parameterType="_int">
+		DELETE FROM TEST_REPLY WHERE REPLYNUM=#{replynum}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
