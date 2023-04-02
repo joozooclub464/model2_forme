@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>day17</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>JFC</servlet-name><!-- 서블릿 name은 별칭임 -->
+  	<servlet-class>com.koreait.servlet.JSONFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>JFC</servlet-name><!-- 일단 다 컨트롤러로 보낼 수 있음 -->
+  	<url-pattern>*.jd</url-pattern><!-- 이거 하나만 등록해도 -->
+  </servlet-mapping>
+</web-app>

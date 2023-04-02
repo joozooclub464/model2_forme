@@ -1,0 +1,12 @@
+{
+	"search_word":
+	[
+		{"rank":"1", "name":"Ajax"},
+		{"rank":"2", "name":"웹개발"},
+		{"rank":"3", "name":"HTML"},
+		{"rank":"4", "name":"CSS"},
+		{"rank":"5", "name":"Spring"}
+	
+	]
+
+}
