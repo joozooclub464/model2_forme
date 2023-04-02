@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+  
+<mapper namespace="Board">
+	
+	<select id="getBoardCnt" resultType="_int">
+		SELECT COUNT(*) FROM TEST_BOARD
+	</select>
+	
+	<select id="getBoardList" parameterType="hashmap" resultType="boarddto">
+		SELECT * FROM 
+		(SELECT ROWNUM R, D.* FROM
+			(SELECT * FROM TEST_BOARD ORDER BY BOARDNUM DESC) D) B
+			WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+			<!-- 위의 경우 rownum이 boardDTO에 없기 때문에   R을 쓸 수가 없어서 서브쿼리로 한번 더 묶어줬음.-->
+	<select id="getDetail" parameterType="_int" resultType="boarddto">
+		SELECT * FROM TEST_BOARD WHERE BOARDNUM = ${boardnum}
+		<!-- 
+			MyBatis 에서 #심볼은 무슨 값이든 문자열로 그 자리에 적용시킨다.
+				SELECT * FROM TEST_BOARD WHERE BOARDNUM = '53'
+			MyBaits에서 $심볼은 넘어온 값의 타입 그대로 쿼리문에 적용시킨다.
+				SELECT * FROM TEST_BOARD WHERE BOARDNUM = 53
+			
+			SELECT * FROM TEST_BOARD WHERE ${column} = #{data}
+			column : "BOARDNUM" / data : 53		로 파라미터를 넘겼을 때
+			컬럼으로 넘길 때 $로 표시해서 넘기면 안의 문자열이 그대로 데이터 이름으로 붙음(컬럼의 경우 절대 # 쓰면 안됨)
+				SELECT * FROM TEST_BOARD WHERE BOARDNUM = '53'
+			column : "USERID" / data : "apple"		로 파라미터를 넘겼을 때
+				SELECT * FROM TEST_BOARD WHERE USERID = 'apple'
+		 -->
+	</select>
+	<select id="getLastNum" parameterType="string" resultType="_int">
+		SELECT MAX(BOARDNUM) FROM TEST_BOARD WHERE USERID = #{userid} 
+		<!-- selectOne은 검색된것중 가장 위에것 하나만 검색하는것. -->
+	</select>
+	
+	
+	<update id="updateReadCount" parameterType="_int">
+		UPDATE TEST_BOARD SET READCOUNT = READCOUNT+1 WHERE BOARDNUM = #{boardnum}
+	</update>
+	<update id="updateBoard" parameterType="boarddto">
+		UPDATE TEST_BOARD SET BOARDTITLE = #{boardtitle},BOARDCONTENTS = #{boardcontents}
+		WHERE BOARDNUM = #{boardnum}
+	</update>
+
+	
+	<insert id="insertBoard" parameterType="boarddto">
+		INSERT INTO WEB.TEST_BOARD
+		(BOARDNUM, BOARDTITLE, BOARDCONTENTS, USERID, REGDATE, READCOUNT)
+		VALUES(BOARD_SEQ.NEXTVAL, #{boardtitle}, #{boardfcontents}, #{userid}, SYSDATE, 0);
+		
+	</insert>
+	
+</mapper>
+  
+  

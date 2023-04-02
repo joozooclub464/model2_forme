@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- 이 파일은 mybatis의 mapper파일이다 하고 컴퓨터에게 알려주는 코드 -->
+
+
+<mapper namespace="User">
+	<select id="checkId" parameterType="string" resultType="_int">
+		<!-- id는 고유한 값. 메소드명과 동일하게 감. -->
+		<!-- "_int" : 클래스가 아닌 기본 자료형에는 _를 붙임.(보통 _int에만 많이 사용됨) -->
+		SELECT COUNT(*) FROM TEST_USER WHERE USERID = #{userid}
+	</select><!--string 타입으로 userid라는 파라미터 하나 받아와서 세팅함.   -->
+	
+	<select id="login" resultType="userdto" parameterType="hashmap">
+		SELECT * FROM TEST_USER 
+		WHERE USERID = #{userid} AND USERPW = #{user_pw} <!-- 키값으로 꺼냄. -->
+	</select>
+	
+	<insert id="join" parameterType="userdto">
+		INSERT INTO WEB.TEST_USER
+		(USERID, USERPW, USERNAME, USERGENDER, ZIPCODE, ADDR, ADDRDETAIL, ADDRETC, USERHOBBY)
+		VALUES(#{userid},#{userpw},#{username},#{usergender},#{zipcode},#{addr}, #{addrdetail}, 
+		#{addretc}, #{hobbystr})
+
+
+	</insert>
+
+
+
+
+</mapper>  
+  
