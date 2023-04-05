@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- src/mapper/StudentMapper1.xml -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "student">
+
+<resultMap type="student" id="studentRMap">
+<result column = "deptno1" jdbcType = "BIGINT" property="major1"/>
+<result column = "deptno2" jdbcType = "BIGINT" property="major2"/>
+</resultMap>
+<!-- 레코드 추가. -->
+<insert id = "insert" parameterType="student">
+insert into student
+(studno, name, grade, id, jumin, deptno1)
+values
+(#{studno}, #{name}, #{grade}, #{id}, #{jumin}, #{major1})
+<!-- mybatis에 있는 java properties임. -->
+
+</insert>
+<!-- 읽어오기 -->
+<select id = "selectno" parameterType = "int" resultType = "student">
+select * from student where studno = #{value}
+</select>
+
+<select id = "selectnomap" parameterType = "int" resultMap = "studentRMap"><!--parameterType이 int인 이유는 studno하나만 보내주기 때문.(바인딩 필요 없어서 클래스명이 아니라 int임.) -->
+select * from student where studno = #{value}
+</select>
+
+<update id = "update" parameterType = "student"> 
+<!--parameterType은 아래 있는 여러개를 바인딩해주는것 즉 weight,height,profno등 이 모두 들어있는 클래스가 student라서 파라미터타입이 student인것. -->
+update student set grade=#{grade}, weight=#{weight}, height=#{height}, profno=#{profno}
+where studno = #{studno}
+<!-- select * from student where studno = #{value}  -->
+</update>
+<delete id = "delete" parameterType = "int">
+delete from student where studno = #{studno}
+</delete>
+
+<select id = "select2" resultType = "student">
+select * from student where ${col} >= #{value} <!-- main2에서 조건을 바꿔줘도 같은 형식이면 출력 가능함. -->
+</select>
+</mapper>

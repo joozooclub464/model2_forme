@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- src/mapper/StudentMapper1.xml -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "student2">
+
+<select id = "select1" resultType = "student">
+select * from student 
+</select>
+
+
+<select id = "select2" resultType = "student">
+select * from student 
+	<where>
+		<if test = "grade != null"> grade = #{grade} </if>
+		<if test = "height != null"> height >= #{height} </if>
+		<if test = "studno != null"> studno = #{studno} </if>
+	</where>
+	<!-- select_grade와 select_height가 하나로 합쳐짐. -->
+</select>
+
+<!-- 
+<select id = "select_grade" resultType = "student" parameterType = "int"> 
+select * from student
+where grade = #{value}
+</select>
+
+<select id = "select_height" resultType = "student" parameterType = "int">
+select * from student
+where height >= #{value}
+</select>
+ -->
+ 
+<select id = "select3" resultType = "student" parameterType = "map"> 
+select * from student 
+	<choose> 
+		<when test = "grade != null and height != null">
+			where grade = #{grade} and height >= #{height}
+		</when>
+		<when test = "grade != null">
+			where grade = #{grade}
+		</when>
+		<when test = "height != null">
+			where height >= #{height}
+		</when>
+	</choose>
+</select>
+<!-- select3,4는 같은 목적 다른 구문 -->
+<select id = "select4" resultType = "student" parameterType = "map"> 
+select * from student
+	<trim prefix = "where" prefixOverrides = "AND || OR">
+		<if test = "grade != null">and grade = #{grade} </if> <!--위에서 trim으로 and를 지워서 여기서 추가 -->
+		<if test = "height != null">and height >= #{height} </if>
+		<if test = "weight != null">and weight >= #{weight} </if>
+	</trim>
+</select>
+
+<resultMap id = "studentResultMap" type = "student">
+	<result column = "deptno1" jdbcType = "BIGINT" property = "major1"/>
+	<result column = "deptno2" jdbcType = "BIGINT" property = "major2"/>
+</resultMap>
+<select id = "select5" resultMap = "studentResultMap" parameterType = "map">
+select * from student
+	<if test = "datas != null">
+		where ${column} in <!--coluumn에 '' 있을 수 없으므로 ${} 임. -->
+		<foreach collection = "datas" item = "d" separator="," open = "(" close = ")" > 
+		#{d}
+		</foreach>
+	</if>
+</select>
+<!--  <select id = "select_height_grade" resultType = "student" parameterType = "map"> 전달되는 사항이 두개이기 때문에 map 사용.
+select * from student
+where height >= #{height} and grade = #{grade}
+</select> -->
+</mapper> 

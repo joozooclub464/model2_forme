@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- /src/mapper/MemberMapper1.xml -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+<!--  id속성 : 유일해야함. sql 구문을 구별하는 유일한 이름.
+			  namespace 가 다른 경우는 다른 sql 구문으로 인식함.
+	  resultType : 결과를 전달하는 자료형을 지정.
+	        int : Integer
+	        mybatis.java.Member : 컬럼명과 set 프로퍼티의 이름이 같은 경우 자동으로 설정함.
+	 #{value} : 파라미터로 전달된 값 + 자료형 판단. => 보안프로그래밍으로 권장.
+	   value의 자료형이 문자열 : where id=#{value} => where id='admin'
+	   value의 자료형이 숫자 : where id=#{value} => where id = 1
+	 ${value} : 파라미터로 전달된 값
+	   value의 자료형이 문자열 : where id=${value} => where id = admin 
+	   ###  '#'은 '' 가 들어감. '$'는 '' 없이 들어감. 쿼리를 짤 때 '' 가 있는지 없는지 확인하고 $,#를 사용해야함.(동영상 참고) -->
+	  
+	  <select id = "count" resultType = "int">
+	  	select count(*) from member
+	  </select> 
+	   
+	  <select id = "list" resultType = "member"> <!--member에 있는 컬럼 이름들이 자동으로 list에 들어감. -->
+	  	select * from member 
+	  </select>
+	  
+	  <select id = "selectid" resultType = "member" parameterType = "string"> <!--파라미터가 string값이어서 Main1.java에서 33번라인이 "admin" -->
+	  	select * from member where id = #{value}
+	  </select>
+	  
+	  <select id = "selectname" resultType = "member" parameterType = "string">
+	  	select * from member where name like #{value}
+	  </select>
+	  
+	  <select id = "selectname2" resultType = "member" parameterType = "string">
+	  	select * from member where name like '%${value}%'
+	  </select> <!-- 이를테면 member의 위치에서 값을 받아와야 하는 경우도 있을 텐데 그럴때는 ''있으면 x => $ 사용 -->
+	  
+	  <select id = "selectnamegender" resultType = "member" parameterType = "map">
+	  	select * from member where name like #{name} and gender = #{gender}
+	  	<!-- 한가지 값을 보낼 때에는 value로 넣고, 여러개 값을 넣을 때에는 지정된 이름(위에선 name, gender 를 넣어야함.)-->
+	  </select>
+	  
+	  
+	  
+	  
+</mapper>

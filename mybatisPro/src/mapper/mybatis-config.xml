@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- /src/mapper/mybatis-config.xml -->
+<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <properties resource="mapper/mybatis.properties"/>
+  <typeAliases>
+     <typeAlias type="mybatisjava.Member" alias="member"/> <!-- 자동으로 데이터를 읽어오는 코드 -->
+     <!--mybatisjava.Member 이 클래스를 xml에서 member이렇게 쓰겠다는 뜻.(setter getter임) -->
+  	 <typeAlias type="mybatisjava.Student" alias="student"/>
+  	 <typeAlias type="mybatisjava.Professor" alias="professor"/>
+  </typeAliases>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC" />
+      <dataSource type="POOLED"> <!-- Connection 객체 -->
+         <property name="driver" value="${driver}"/>
+         <property name="url" value="${url}"/>
+         <property name="username" value="${username}"/>
+         <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers><!-- sql 구문 -->
+    <mapper resource="mapper/MemberMapper1.xml"/><!-- mapper가 등록되어야지만 읽을 수 있음. -->
+ 	 <mapper resource="main/Student1Mapper1.xml"/><!-- 경로잘봐라 -->
+ 	 <mapper resource="main/Student2Mapper2.xml"/>
+ 	 <mapper resource="mapper/ProfessorMapper.xml"/> 
+ 	 <mapper class = "mapper.ProfessorMapper"/> <!-- mapper패키지 안에 professormapper라는 인터페이스 만든것. -->
+  </mappers>
+</configuration>
