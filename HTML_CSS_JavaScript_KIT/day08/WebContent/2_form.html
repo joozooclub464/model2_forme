@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2_form</title>
+</head>
+<body>
+	<form action="3_join_db.html" method="get">
+		<p>
+			아이디 <input type="text" size="100" name="userid" maxlength="12" value="apple" readonly>
+		</p>
+		<p>
+			비밀번호 <input type="password" placeholder="비밀번호를 입력하세요." required>
+		</p>
+		<p>
+			성별 <br>
+			<!-- usergender 라는 이름으로 value "남" 혹은 "여" 중에 하나가 날라간다. -->
+			<input type="radio" name="usergender" value="남"> 남 / 
+			<input type="radio" name="usergender" value="여" > 여
+		</p>
+		<p>
+			취미 <br>
+			<input type="checkbox" name="userhobby" value="영화보기"> 영화보기 /
+			<input type="checkbox" name="userhobby" value="음악감상"> 음악감상 /
+			<input type="checkbox" name="userhobby" value="코딩하기"> 코딩하기 
+		</p>
+		<p>
+			파일첨부 <input type="file">
+			
+		</p>
+		<p>
+			<!-- 버튼에 써진 value 속성값은 버튼에 새겨질 문자열  -->
+			제출하기 <input type="submit" value="회원가입"> 
+			일반버튼 <input type="button" value="일반버튼" onclick="window.alert('Hi')"> 
+			초기화 <input type="reset" value="이런 망할">
+		</p>
+		
+	</form>
+
+
+
+
+</body>
+</html>

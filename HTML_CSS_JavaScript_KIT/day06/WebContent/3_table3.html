@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3_table3</title>
+</head>
+<style>
+	table {
+		margin: 0 auto;
+		text-align: center;
+	}
+	th, td {
+		width: 100px;
+		padding: 5px;
+		text-align: center;
+	}
+	thead {
+		background-color: #f48fb1;
+	}
+	tbody {
+		background-color: #e3f2fd;
+	}
+	tfoot {
+		background-color: #ffccbc;
+	}
+</style>
+<body>
+	
+	<table border="1">
+		<caption>
+			<b>&lt;thead&gt;&lt;tbody&gt;&lt;tfoot&gt;</b><br>
+			각 행별로 스타일 지정하기
+		</caption>
+		<thead>
+		<tr>
+			<th>태그명</th>
+			<th>영역</th>
+			<th>화면판독기</th>
+			<th>기타</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>thead</td>
+			<td>제목</td>
+			<td rowspan="3">가능(O)</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>tbody</td>
+			<td>본문</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>tfoot</td>
+			<td>요약</td>
+			<td></td>
+		</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="4">tfoot영역(요약)</th>
+			</tr>
+		</tfoot>
+	</table>
+
+
+
+</body>
+</html>

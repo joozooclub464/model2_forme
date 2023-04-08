@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3_link</title>
+<style>
+	a{ /* 전체 기본  */
+		text-decoration: none; /* 밑줄 없애기 */
+	}
+	
+	/* 링크가 연결되었을 때 */
+	a:link { /* 아직 한번도 안 들렸을때  */
+		color: deepskyblue;
+	}
+	a:visited { /* 방문한 기록이 있을 때  */
+		color: deepskyblue;
+	}
+	a:hover { /*마우스가 올라가 있을 떄 */
+		color:deeppink;
+	}
+	a:active { /* 마우스 클릭 상태일 때 */
+		color: yellow;
+	}
+	
+</style>
+</head>
+<body>
+										<!--_blank : 새 창에서 열기  -->
+	<a href="../images/banana2.png" target="_blank">귀여운 바나나 보러가기~</a><br>
+	<a href="https://www.naver.com">네이버로 놀러가기~</a><br>
+	<a href="../1_image.html"><img src="../banana1.png"></a><br>
+	
+
+</body>
+</html>

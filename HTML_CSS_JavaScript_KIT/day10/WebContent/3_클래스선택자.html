@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3_클래스 선택자</title>
+</head>
+<style>
+	.blue {
+		color:blue;
+	}
+	/* 선택자1선택자2 : 선택자1 이면서 선택자2 인것 */
+	p.blue {
+		latter-spacing:5px;
+	}	
+	/* 선택자1 선택자2 : 선택자1 안에 있는 선택자2 인것 */
+	p .red {
+		color:red;
+	}
+	
+	.big {
+		font-size: 4em;
+	}
+	
+</style>
+<body>
+	<h2 class="blue">특정 부분에 스타일 적용하기</h2>
+	<p class="blue">태그 선택자를 지정하면 그 태그가 사용된 요소에 스타일이 적용된다.</p>
+	
+	<p>
+		같은 태그라도 다른 스타일을 적용하고 싶다면 어떻게 해야할까<br>
+		또 다른 태그여도 같은 스타일을 적용하고 싶다면 어떻게 해야할까
+		<span class="red">특정 부분</span>에만 스타일을 지정하고 싶다면 클래스 선택자를 사용한다.<br>
+		<!-- 클래스는 띄어쓰기로 구분하여 여러개 부여할 수 있다. -->
+		<strong class="blue big">클래스 이름은 나중에 기억하기 쉬운 이름을 임의로 지정하면 된다.</strong>
+	</p>
+	<span class="red">여기는 스타일 적용을 안할거에요~</span>
+	
+</body>
+</html>
