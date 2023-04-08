@@ -1,0 +1,56 @@
+iframe(inline frame)
+	해당 웹 페이지 안에 제한 없이 또 다른 하나의 웹 페이지를 삽입할 수 있다.
+	단, 정보보호를 위해 iframe 제한을 둔 사이트들은 새 창으로만 접근할 수 있다.
+
+	<iframe src="삽입할 페이지 주소"></iframe>
+-------------------------------------------------------------------------
+form 태그
+	웹 페이지 내에서 사용자로부터 입력을 받은 후 데이터를
+	모아서 다른 페이지로 전송할 떄 사용하는 태그
+
+	<form action="데이터를 전송할 위치" method="전송방식(get/post)">
+		여러 입력들(input, textarea, select,...)
+	</form>
+
+input
+	사용자에게 입력받기 위해 사용하는 태그
+	<input type="" placeholder="" name="" value="">
+
+	maxlength	값의 최대 길이
+	size		글상자의 크기(값의 길이 X)
+	placeholder	사용자에게 어떤 값을 입력해야하는지 유도, 안내해주는 문자열값
+	readonly	읽기전용, 수정할 수 없음
+	value		실제 값
+	name		해당 입력의 이름(데이터 처리쪽에서 식별자 역할)
+	required	필수 항목
+
+type속성
+	text		텍스트 입력
+	password	비밀번호 입력(입력시 ******)
+	radio		동그란 버튼(중복체크 불가 / name이 같은것들끼리 세트)
+	checkbox	네모난 버튼(중복체크 가능 / name으로 여러 값들을 찾을 수 있음)
+	file		파일 첨부 버튼(form에 enctype 속성을 작성해 주어야 한다.)
+			enctype="multipart/form-data"
+	color		원하는 색상 선택
+	email		이메일 입력(@ 없으면 전송 불가)
+	url		http:// , https:// 포함해서 입력
+	tel		휴대폰 번호 입력
+	date		날짜 입력
+	number		숫자크기를 조절하는 상하버튼이 생긴 입력
+	range		일정 범위 안의 값만 입력
+	search		검색어 입력 / 입력시 오른쪽 끝에 X 버튼 생김
+	button		버튼(아무 기능 없는 순수 버튼)
+	submit		제출버튼 / 현재 속해있는 form의 모든 데이터들을 전송하며 입력 마무리
+	reset		리셋버튼
+	
+
+
+
+
+
+
+
+
+
+
+

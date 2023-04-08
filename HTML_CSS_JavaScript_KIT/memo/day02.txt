@@ -1,0 +1,42 @@
+인코딩(Encoding)
+	문자를 표현, 해석하기 위한 방식 방법들
+	
+	EUC-KR 	: 완성형, 만들어져 있는 완성된 글자를 찾아옴
+		"안녕" "안" "녕"
+
+	UTF-8	: 조합형, 글자를 만들기 위한 요소들을 하나씩 찾아와서 조합
+		"힗" ㅎ ㅣ ㄹ ㅎ 
+
+	다국어 지원을 위해 UTF-8로 페이지의 환경을 설정해 준다.
+	
+인코딩 설정
+	Window > Preferences > enc 검색...
+	Workspace, CSS Files, HTML Files, JSP Files, XML Files
+	인코딩들 UTF-8로 변경 (각 변경마다 Apply)
+
+
+HTML	
+	웹페이지의 골격
+CSS	
+	웹페이지의 디자인
+
+Javascript	
+	웹페이지의 기본적인 동작
+
+톰캣 설치
+	구글에 tomcat 검색 > 톰캣 홈페이지 접속 > 왼쪽 다운로드에서
+	Tomcat 9 클릭 > 64-bit Windows zip 클릭으로 다운로드
+	> 압축파일 우리 폴더로 가져와서 압축해제
+	압축 해제한 최상위 폴더 안에 conf 폴더 > server.xml 파일
+	메모장으로 열기 > <Connector port = "8080" 검색 > 
+	8080 대신에 9090으로 변경 후 저장 > 최상위 폴더 안에 bin 폴더
+	> startup.bat 파일 실행(바로 꺼지면 jdk문제 혹은 환경변수 문제)
+	> bat파일 끄지 않고 브라우저에 localhost:9090 접속
+	> 귀여운 고양이 나오면 성공!
+	
+
+
+
+
+
+

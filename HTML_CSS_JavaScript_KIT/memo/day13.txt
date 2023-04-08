@@ -1,0 +1,53 @@
+CSS 색상 참고 페이지
+	
+
+CSS display
+	block
+		width, height, padding, margin
+	inline
+		line-height, 요소를 가로로 나열
+	inline-block
+		위에 있는 모든 속성들을 다 적용받는 요소
+	none
+		웹 페이지에서 해당 요소가 나타나지 않고 레이아웃에서 사라짐
+	
+CSS position
+	CSS 요소들의 위치를 결정하는 방식을 설정한다.
+	
+	1. 정적(static)위치 지정방식
+		기본값
+		HTML 요소의 위치를 결정하는 기본적인 방식
+		top, left, right, bottom 속성값을 사용할 수 없음
+		단순히 웹 페이지의 흐름에 따라 차례대로 요소들의 위치를 결정하는 방식
+		
+	2. 상대(relative)위치 지정방식
+		HTML 요소의 기본 위치를 기준으로 위치를 재설정하는 방식
+		기본 위치는 정적위치 지정방식일 때 결정되는 위치를 의미한다.
+
+	3. 고정(fixed)위치 지정방식
+		웹 사이트 창을 기준으로 위치를 설정하는 방식
+		웹 페이지가 스크롤 되어도 고정위치로 지정된 요소는 항상 같은 곳에 위치
+		
+	4. 절대(absolute)위치 지정방식
+		위치가 설정된 조상요소를 기준으로 위치를 지정하는 방식
+		위치가 설정된 조상요소가 없다면 body를 기준으로 위치를 결정
+		위치가 설정되었다는 뜻은 static을 제외한 나머지 방식으로 위치가 설정되었다는 뜻
+		
+border-radius
+	왼쪽 상단부부터 시계방향으로 설정
+	
+	border-radius: (왼쪽 위부터 x축 길이) / (왼쪽 위부터 y축 길이) ;
+	
+	대각선끼리 길이가 같을 때 
+	border-redius: top-left-x top-right-x / top-left-y top-right-y ;
+	
+
+
+
+
+
+
+
+
+
+

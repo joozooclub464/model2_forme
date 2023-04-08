@@ -1,0 +1,80 @@
+Form 태그 접근
+	<form id="joinForm" name="joinForm">
+		<input id="in1" type="text" name="in1">
+	</form>
+	
+	let frm = document.joinForm;
+	let inputTag = frm.in1;
+	inputTag.value //->사용자가 입력한 값이 나옴
+
+location 객체
+	현재 브라우저에 표시된 HTML 문서의 주소를 얻거나, 브라우저의 
+	새 문서를 불러올 때 사용할 수 있다. location 객체의 프로퍼티와 
+	함수를 이용하면 현재 문서의 URL 주소를 다양하게 해석하여 처리할 수 있다.
+	
+	location.href
+		현재 페이지의 URL 정보가 담겨있는 프로퍼티 //innerHTML과 같은 존재라고 생각하며 됨.
+		대입을 통해 새로운 문자열을 넣게 되면 이동이 일어난다.
+		
+	location.reload()
+		새로고침
+	
+	location.assign("URL주소")
+		현재 URL을 지정한 URL로 바꿔서 이동
+
+		      assign
+		A --> B --> C
+			<-- 
+
+	location.replace("URL주소")
+		현재 URL을 지정한 URL로 대체해서 바꾸고 이전으로 이동 불가
+		     replace
+		A --> B --> C
+		<------------
+
+history 객체
+	브라우저의 히스토리 정보를 문서 상태 목록으로 저장하는 객체
+	
+	history.go(n)		: n만큼 페이지 이동, 양수면 앞으로 음수면 뒤로 이동 //0이면 새로고침(be 현재페이지로 이동이니깐)
+	history.back()		: 뒤로가기
+	history.forward()	: 앞으로가기
+	
+DOM
+	문서 객체 모델(DOM : Document Object Model)
+	XML이나 HTML 문서에 접근하기 위한 인터페이스, 문서 내의 모든 요소를 정의하고
+	각각의 요소에 접근하는 방법을 제공한다.
+	
+Document 객체
+	웹 페이지 그 자체를 의미한다. 웹페이지에 존재하는 HTML 요소에 접근하고자 할 때에는
+	반드시 document 객체부터 시작한다.
+	
+Document 함수
+	-HTML 요소 선택
+	getElementById("아이디")
+		해당 아이디를 가진 요소를 선택하여 객체로 가져오는 함수
+
+	getElementsByTagName("태그명")
+		해당 태그인 요소들을 선택하여 배열로 가져오는 함수
+
+	getElementsByClassName("클래스명")
+		해당 클래스를 가진 요소들을 선택하여 배열로 가져오는 함수
+
+	querySelectorAll("CSS선택자")
+		선택자에 해당하는 요소를 배열로 가져오는 함수
+	
+	DOM 요소의 내용 변경
+		innerHTML 프로퍼티를 이용해서 간단하게 요소의 내용을 변경할 수 있다.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
