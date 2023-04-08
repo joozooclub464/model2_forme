@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1_인라인블럭</title>
+<style>
+	.box1{
+		border: 3px solid blue;
+		width: 400px;
+		/* line-height: 200px; */ /*텍스트가 기준*/
+		height: 200px; /*div가 기준*/
+		padding: 30px;
+		display:inline-block;
+	}
+	.box2{
+		border: 3px solid green;
+		width: 300px;
+		height: 100px;
+		padding: 20px;
+		/* border,padding과 실제 width값(height값)을 합쳐서 
+		속성값으로 지정해 주고 싶은 경우엔 
+		box-sizing:border-box
+		를 이용한다. */
+		box-sizing: border-box;
+		display: inline-block;
+	}
+</style>
+</head>
+<body>
+	<div class="box1">
+		박스 1의 내부입니다.
+	</div>
+	<div class="box2">
+		박스 2의 내부입니다.
+	</div>
+
+
+</body>
+</html>

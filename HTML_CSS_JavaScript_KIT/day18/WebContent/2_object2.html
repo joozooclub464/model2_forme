@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2_object2</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Car(brand, color, price) {
+		this.brand = brand;
+		this.color = color;
+		this.price = price;
+		
+		this.engineStart = function() {
+			console.log(this.brand+ " 시동 켜기");
+		}
+	}
+	
+	const mycar = new Car("Ferrari","Red",65000); //그냥 Car를 쓰면 ->함수 / new Car ->생성자
+	const momcar = new Car("K7","White",7000);
+	
+	mycar.engineStart();
+	momcar.engineStart();
+	console.log(mycar["brand"]); //Ferrari
+	
+	console.log(typeof(mycar)); //object타입.(type은 전혀 달라지지 않음.)
+								//우리가 간단하게 Car타입이야 라고 부를 수는 있지만 엄밀히 Car타입은 아님(Object타입임)
+	
+	for(let key in mycar) {
+		console.log(key,mycar[key]); //mycar key에 관련된 것들이 출력됨(함수도 출력됨)
+		//console.log(key,mycar.key); //undefined //mycar안에있는 key라는 프로퍼티를 찾음-> 불가
+	}
+	
+	//프로토타입
+	//Car.prototype.brand = "Benz"; //Car생성자가 만들 수 있는 prototype의 brand는 Benz야.
+	Car.prototype.wheel = 4; ////Car생성자가 만들 수 있는 prototype의 wheel은 4야. 
+	console.log(mycar.wheel); //아까 만든 생성자에 wheel이 없었음에도 불구하고 wheel 4개가 추가되서 나옴
+	console.log(momcar.wheel); //즉 prototype에 wheel=4를 추가했으므로 변수를 가질 수 있게됨
+	console.log(mycar); //출력해보면 내부에 prototype으로 무언가가 존재함. 그 내부에 또 prototype으로 Object있음
+</script>
+</html>

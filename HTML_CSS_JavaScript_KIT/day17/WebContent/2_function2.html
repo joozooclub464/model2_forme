@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2_function2</title>
+</head>
+<body>
+
+</body>
+<script>
+	//f(); //초기화 전에 호출할 수 없음(변수로 처리됨) -> initialize 오류 발생
+	let f = function() {
+		for(let i = 0; i<10; i++) {
+			console.log('i',i);
+		}
+	} //f라는 변수에 function에 해당하는 코드가 담겨있음 -> 그 코드를 다른 이름에 넘겨주면 그것 또한 마찬가지로 함수처럼 쓸 수 있음. 
+	
+	//1. 여기서 콜백함수는 선언만 되어있음(함수는 선언만 한다고 쓸 수 있는것이 아니기 때문)
+	let f2 = function(callback) { //콜백함수 : 함수를 마치 값처럼 전달하는 것
+	 /* callback = function() { //여기서 이게 실행된다고 생각하면 이해하기 쉬움
+			alert("콜백함수 호출!");
+		} */
+		callback();
+	}
+	//console.log(f); //함수의 코드가 출력됨 be)f라는 변수에 function에 해당하는 코드가 담겨있기 때문
+	f();//여기서 호출 시 정상적으로 실행됨.
+	
+	//2. 여기서 콜백함수 호출이 이루어짐.
+	f2( // 값처럼 callback으로 들어감.
+		function() { //즉 호출을 할 때 function에 선언하면서 넘김(be자바스크립트에서 function은 하나의 값이고, 변수에도 넣을 수 있음 -> 변수에 담아서 f2라는 이름으로 호출 가능)
+		alert("콜백함수 호출!");
+		}
+	);
+	
+	
+</script>
+</html>

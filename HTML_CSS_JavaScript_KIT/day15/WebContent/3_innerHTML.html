@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3_innerHTML</title>
+</head>
+<body>
+	<h1>innerHTML</h1>
+	<p id="text">재미있는 Javascript 수업~ </p>
+	
+</body>
+<script>
+	let pTag = document.getElementById("text");
+	//alert(pTag.innerHTML); /* p태그에 작성해둔 내용이 나옴(alert로) */
+		/* innerHTML은 pTag라는 객체 안에 있는 변수라고 생각하면 됨  =>값임*/
+	pTag.innerHTML = "<button>아주</button> " + pTag.innerHTML; 
+		
+</script>
+</html>

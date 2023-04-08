@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1_jQuery</title>
+</head>
+<body>
+	<input type="text" class="num" value="1">
+	<br>
+	<input type="text" class="num" value="2">
+	<br>
+	<input type="text" class="num" value="3">
+	<br>
+	<input type="button" value="변경(제이쿼리)" onclick="$('.num').css('border-color','red');">
+	<input type="button" value="변경(바닐라)" onclick="change()">
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	//모든 input 태그들 테두리를 빨간색으로 변경
+	function change(){
+		let tags = document.getElementsByClassName("num");
+		for(let tag of tags) {
+			tag.style.borderColor = "red";
+		}		
+	}
+</script>
+</html>

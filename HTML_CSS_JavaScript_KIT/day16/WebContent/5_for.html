@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>5_for</title>
+</head>
+<body>
+
+</body>
+<script>
+	let arData = new Array();
+	arData[0] = 10;
+	arData[3] = 20;
+	arData[7] = 30;
+	arData[1] = 40;
+	arData[11] = 50;
+	
+	console.log(arData);
+	for(let i in arData) { //키값들을 가져옴  ie인덱스라고 칭해지는 것들을 가져옴 ==> for in문은 어떤 값들이 몇개가 있는지 모를 때 사용.
+		console.log(i)
+	}
+	
+	let mycar = {brand:"Ferrari", color:"Red"};
+	for(let key in mycar) {
+		console.log(key);
+		console.log(mycar[key]);
+	}
+	for(let data of arData) {
+		console.log(data)
+	}
+	
+	
+</script>
+</html>

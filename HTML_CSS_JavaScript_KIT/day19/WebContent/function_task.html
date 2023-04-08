@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>function_task</title>
+<style>
+	table{
+		margin:0 auto;
+		width:500px;
+		margin-bottom:20px;
+		border-collapse: collapse;
+		text-align:center;
+	}
+	th,td{
+		box-sizing:border-box;
+		padding:5px 0;
+		border:2px inset #ef9a9a;
+		font-weight: 600;
+		width:250px;
+	}
+	caption{
+		color:white;
+		font-weight:bold;
+		text-shadow:3px 3px 2px orange;
+		font-size:2em;
+		margin-bottom:20px;
+	}
+	fieldset {
+		width:30%;
+		margin:0 auto;
+		text-align:center;
+		border-radius:5px;
+		border-color:#ce93d8;
+	}
+	input{
+		border-radius:3px;
+		padding:5px;
+	}
+	input[type='text']{
+		border-color:#3949ab;
+	}
+	
+	button{
+		-webkit-appearance: none;
+		appearance:none;
+		padding:5px;
+		border:2px solid #c5cae9;
+		border-radius:3px;
+		background-color:#9fa8da;
+		color:#fff;
+	}
+</style>
+</head>
+<body>
+	<div>
+	<table border="1">
+	<caption>요금표</caption>
+		<tr>
+			<th>구분</th>
+			<th>요금</th>
+		</tr>
+		<tr>
+			<td>아동</td>
+			<td>무료</td>
+		</tr>
+		<tr>
+			<td>청소년</td>
+			<td>2000원</td>
+		</tr>
+		<tr>
+			<td>성인</td>
+			<td>5000원</td>
+		</tr>
+	</table>
+	<fieldset>
+		<legend>구분</legend>
+		<input type="text">
+		<button onclick="confirm()">확인</button>
+	</fieldset>
+	</div>
+</body>
+<script>
+	//내 답
+
+
+
+	//선생님 답
+	let inputTag = document.getElementById("input");
+	let trTag = document.getElementsByClassName("tr");
+	let tdTag = document.getElementsByClassName("text");
+	
+	function confirm(){
+		for(let i=0;i<tdTag.length;i++){
+			if(inputTag.value === tdTag[i].innerHTML){
+				trTag[i].style.background = '#ef9a9a';
+				tdTag[i].innerHTML = '★'+tdTag[i].innerHTML;
+			}else if("★"+inputTag.value === tdTag[i].innerHTML){
+				continue;
+			}else{
+				trTag[i].style.background = "#fff";
+				tdTag[i].innerHTML = tdTag[i].innerHTML.replace("★","");
+			}
+		}
+	}
+
+	
+</script>
+</html>

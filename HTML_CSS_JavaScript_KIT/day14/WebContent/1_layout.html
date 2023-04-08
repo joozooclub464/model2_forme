@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1_layout</title>
+<style>
+	/* 가상요소 : 해당 요소의 앞, 뒤에 가상의 요소가 있다고 가정하고 스타일을 지정 */
+	h1::before {
+		content:"1. "
+	}
+	h1::after {
+		content:" - 기본"
+	}
+	/* 데스트탑 */
+	/* 화면 너비 0~1280px  */
+	@media screen and (max-width:1280px)  {
+		body {
+			background-color: #ede7f6;
+			color: #ff1744;
+		}
+		h1::before {
+			content: "2. ";
+		}
+		h1::after {
+			content: " - 1025px ~ 1280px";
+		}
+	}
+	/* 화면 너비 0~1024px */
+	@media screen and (max-width:1024px) {
+		body {
+			background-color: #00838f;
+			color: #fff;
+		}
+		h1::before {
+			content: "3. ";
+		}
+		h1::after{
+			content: " - 961px ~ 1024px"
+		}
+	}
+	/* 노트북  */
+	/* 화면 너비 0~960px */
+	@media screen and (max-width:960px) {
+		body {
+			background-color: #c8e6c9;
+			color: f4511e;
+		}
+		h1::before {
+			content: "4. ";
+		}
+		h1::after {
+			content: " - 769px ~ 960px";
+		}
+	}
+	/* 태블릿 */
+	/* 화면 너비 0 ~ 768px */
+	@media screen and (max-width:768px) {
+		body {
+			background-color: #1565c0;
+			color: #fff;
+		}
+		h1::before {
+			content: "5. ";
+		}
+		h1::after {
+			content: " - 577px ~ 768px";
+		}
+	}
+	/* 모바일 */
+	/* 화면 너비 0 ~ 576px */
+	@media screen and (max-width:576px) {
+		body {
+			background-color: #f50057;
+			color: #fff;
+		}
+		h1::before {
+			content: "6. ";
+		}
+		h1::after {
+			content: " - 0px ~ 576px";
+		}
+	}
+</style>
+</head>
+<body>
+	<h1>미디어 쿼리</h1>
+	<p>미디어 쿼리는 화면 크기에 따른 각각의 속성 값을 지정하여, 여러개의 화면을 구성하는 기술이다.</p>
+	<p>
+		<h4> @media screen and (조건식) { 스타일 적용  } </h4>
+		<ul>
+			<li>@media : 미디어 쿼리가 시작됨을 표시</li>
+			<li>screen : 미디어 쿼리의 적용 기기 / all : 모든 기기 </li>
+			<li>and : 앞의 기기와 뒤의 조건문을 둘 다 만족해야 성립</li>
+			<li>(조건문) : 스타일을 적용시킬 대상 기기에 대한 조건 </li>
+			<li>스타일 적용문 : 조건에 따른 적용할 스타일을 지정</li>
+			
+		</ul>
+	</p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2_상대위치</title>
+<style>
+	div {
+		width: 200px;
+		height: 140px;
+	}
+	.p1{
+		background-color: deeppink;
+		padding:20px;
+		border: 3px solid deepskyblue;
+	}
+	.p2{
+		position:relative;
+		left:100px;
+		top:-70px;
+		background-color: deepskyblue;
+		padding:20px;
+		border: 3px solid deeppink;
+		/* position 속성과 함께 쓰이며 요소의 위, 아래를 결정짓는
+		속성 (값이 클수록 위로 올라오고 작을수록 아래로 내려간다.) */
+		z-index: -50;
+	}
+</style>
+</head>
+<body>
+	<div class="p1">상대위치 지정방식1</div>
+	<div class="p2">상대위치 지정방식2</div>
+
+
+</body>
+</html>

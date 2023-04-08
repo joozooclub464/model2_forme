@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3_DOM1</title>
+<style>
+	#even {
+		color:blue;
+	}
+</style>
+</head>
+<body>
+	<ul>
+		<li class="odd">첫번째 아이템</li>
+		<li id="even">두번째 아이템</li>
+		<li class="odd">세번째 아이템</li>
+		<li id="even">네번째 아이템</li>
+		<li class="odd">다섯번째 아이템</li>
+	</ul>
+</body>
+<script>
+	//JS에서는 둘 중 하나에만 적용된다.
+	let liTag = document.getElementById("even");
+	liTag.style.color="deepskyblue";
+	liTag.style.background="deeppink";
+	/* id 속성은 무조건 고유한 요소에게만 줘야 함 (be. JS에서 활용할 수 없기 때문) */
+	
+	//
+	let oddItems = document.getElementsByClassName("odd");
+	console.log(oddItems.length);
+	for(let li of oddItems) {
+		li.style.color = "red";
+	}
+	for(let i=0; i<oddItems.length;i++) {
+		oddItems[i].style.background = "#dddddd"
+	}
+	
+</script>
+</html>

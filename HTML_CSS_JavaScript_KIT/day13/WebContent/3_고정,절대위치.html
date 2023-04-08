@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3_고정,절대위치</title>
+<style>
+	#wrap{
+		position: relative;
+		width: 500px;
+		height: 500px;
+		border: 3px solid #607d8b;
+		background-color: #fff3e0;
+	}
+	.box {
+		background-color: #5c6bc0;
+		color:white;
+		width: 50px;
+		height: 50px;
+		border: 2px solid #ccc;
+		position: absolute;
+	}
+	#ab1 {
+		top: 0;
+		right: 0;
+	}
+	#ab2 {
+		bottom: 0;
+		left: 20px;
+	}
+	#ab3 {
+		/* top: 436px; */
+		bottom: 10px;
+		right: 0;
+	}
+	#ab4 {
+		top: 223px;
+		left: 223px;
+	}
+	#ab5 {
+		position:fixed;
+		right:30px;
+		bottom:100px;
+		/* div로 원 만들때는 border-radius 속성을 50%로 준다. */
+		/* border-radius: 50%; */
+		border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+	}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="box" id="ab1">1번</div>
+		<div class="box" id="ab2">2번</div>
+		<div class="box" id="ab3">3번</div>
+		<div class="box" id="ab4">4번</div>
+		<div class="box" id="ab5">5번</div>
+	
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>4_우선순위</title>
+<style>
+	div {
+		width:300px;
+		height:20px;
+		background-color: yellow; /* 1점(태그선택자) */
+		/* padding : 안쪽여백(테두리~내용) */
+		padding: 30px;
+		/* margin : 바깥여백(테두리~다른요소 혹은 브라우저창) */
+		margin: 30px;
+	}
+	#important {
+		background-color: deeppink !important;
+	}
+	#id-style {
+		background-color: green; /* 100점(id선택자) */
+	}
+	.class-style {
+		background-color: deepskyblue; /* 10점(클래스) */
+	}
+	.class-style2 {
+		background-color: gold; /* 10점) */
+	}
+	ul > li.li-class {
+		background-color: salmon; /* 태그2개 , 클래스 1개--> 12점 */
+	}
+	ul > li {
+		background-color: blue;  /* 태그2개 --> 2점 */
+	}
+	
+</style>
+</head>
+<body>
+	<div style="background-color: red;" id="important" class="class-style">div 1번</div>
+	<div style="background-color: red;" id="id-style" class="class-style">div 2번</div>
+	<div id="id-style" >div 3번</div>
+	<div class="class-style">div 4번</div>
+	<!-- 10점짜리 두개가 적용됐기 때문에 마지막에 선언한 class-style2의 속성이 적용된다. -->
+		<!-- 여기서 코드를 사용한 순서와는 상관없음. css에서 마지막으로 선언한것이 중요함... -->
+	<div class="class-style2 class-style ">div 5번</div>
+	<div>div 6번</div>
+	<ul>
+		<li class="li-class">li내용</li>
+	</ul>
+
+
+
+</body>
+</html>

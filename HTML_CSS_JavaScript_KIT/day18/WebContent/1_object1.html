@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1_object1</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const mycar = {
+			brand:"Ferrari",
+			color:"Red",
+			price:65000,
+			engineStart:function() {
+				console.log(this.brand+"시동 켜기"); //여기서 this. 을 안쓰면 못 찾음(this를 안쓰면 engineStart함수 내의 지역변수brand를 찾기 때문에 정의되지 않았다고 뜸) 
+			}
+	}
+	console.log(mycar);
+	console.log(typeof(mycar)); //object 객체타입
+	
+	console.log(mycar.brand);
+	mycar.engineStart();
+</script>
+</html>

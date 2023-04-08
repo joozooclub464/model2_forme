@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3_window1</title>
+</head>
+<body>
+	<h2>제목</h2>
+	<p>
+		이슬비가 내리는 오늘은  <br>
+		사랑하는 그대의 생일날 <br>
+		온종일 난 그대를 생각하면서  <br>
+		무엇을 할까 고민했죠 <br>
+		난 가까운 책방에 들러서  <br>
+		예쁜 시집에 내맘 담았죠 <br>
+		그다음엔 근처 꽃집으로가서 <br>
+		빨간장미 한송일 샀죠
+	</p>
+</body>
+<script>
+	window.onload = function() {
+		console.log("페이지 로딩 후 호출되는 문자열");
+		//window.setTimeout(함수,밀리초) : 해당 밀리초 이후에 넘겨주는 함수 호출
+		window.setTimeout(function() {
+			let naver = window.open("http://www.naver.com","_blank","width=600, height=300",true); //만들어진 창->객체 자체임.
+			//결제창 띄우는것 같은거에 이용함
+			window.setTimeout(function() { 
+				naver.close();
+			},3000);
+		},3000);
+	}
+</script>
+</html>

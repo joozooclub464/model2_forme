@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1_function1</title>
+</head>
+<body>
+	<script>
+		f();  //호이스팅 발생 -> 함수선언을 아래에서 해도 위에서 정상적으로 호출 가능.
+		
+		function f() { 
+			for(let i = 0; i<10; i++) {
+				console.log('i',i);
+			}
+		}
+		(function f2() {
+			for(let i = 10; i<20; i++) {
+				console.log('i',i);
+			}
+		})(); //-> 다음과 같은 방법으로 함수 선언과 동시에 사용할 수 있음.(잘 쓰진 않음)
+		
+		
+	</script>
+
+</body>
+</html>

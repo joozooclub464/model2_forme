@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 실습</title>
+<link rel="stylesheet" href="object_task.css">
+</head>
+<body>
+	<fieldset>
+		<legend>자동차 주행</legend>
+		<textarea>현재 상태 표시</textarea>
+		<img src="./출발전.png" id="imgId"> <input placeholder="비밀번호 입력">
+		<button onclick="powerON();" >시동 켜기</button>
+		<button onclick="powerOFF();">시동 끄기</button>
+		<button onclick="reset();">초기화</button>
+	</fieldset>
+</body>
+<script>
+	let pw = prompt("초기 비밀번호 입력");
+	while(true) {
+	//시동켜기	
+	let powerON() {
+		//시동이 켜져 있다면 
+		
+		document.write("시동이 이미 켜져 있습니다.");
+		//이미지 변경
+		function ChangeImg(){
+		    document.getElementById("imgId").src="./시동켜기.gif";
+		}
+	}
+	//시동끄기
+	let powerOFF() {
+		
+		//이미지 변경
+		function ChangeImg(){
+		    document.getElementById("imgId").src = "./시동끄기.gif";
+		}
+	}
+	//초기화
+	let reset() {
+		
+	}
+	
+	}
+	
+	
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1_location1</title>
+</head>
+<body>
+	<form name="myForm">
+		<p>
+			<label>네이버<input type="radio" value="naver" name="site"></label>
+		</p>
+		<p>
+			<label>다음<input type="radio" value="daum" name="site"></label>
+		</p>
+		<p>
+			<label>구글<input type="radio" value="google" name="site"></label>
+		</p>
+		<p>
+			<label>네이트<input type="radio" value="nate" name="site" style="width:1px;height:1px;"></label>
+		</p>
+		<p>
+			<input type="button" onclick="sendit();" value="이동">
+		</p>
+		
+	</form>
+</body>
+<script>
+	function sendit() {
+		let frm = document.myForm;
+		let inputTag = frm.site; //현재 체크되어있는 value값이 넘어옴.
+		switch(inputTag.value) { //inputTag.value -> 체크되어있는 항목의 value중에 하나가 나옴
+		case "naver":
+			location.href = "https://www.naver.com";
+			break;
+		
+		case "daum":
+			location.href = "https://www.daum.net";
+			break;
+		
+		case "google":
+			location.href = "https://www.google.com";
+			break;
+			
+		case "nate":
+			location.href = "https://www.nate.com";
+			break;
+		}
+	}
+	
+</script>
+</html>

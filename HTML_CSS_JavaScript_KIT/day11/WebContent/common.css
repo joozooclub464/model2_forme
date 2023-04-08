@@ -1,0 +1,18 @@
+/* CSS 문법 적용 */
+#notice {
+	background-color: black;
+	color: yellow;
+	text-align: center;
+	font-size: 4em;
+}
+ol {
+	font-size: 1.5em;
+	
+}
+#first > a {
+	text-decoration: none;
+	color: darksalmon;
+}
+.how>#first>a:visited {
+	color:red;
+}

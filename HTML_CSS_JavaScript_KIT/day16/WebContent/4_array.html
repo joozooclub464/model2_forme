@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>4_array</title>
+</head>
+<body>
+
+
+</body>
+<script>
+	let arData = [];
+	/*
+	for(let i = 0; i<5; i++) {
+		arData[i*2] = i+1; //0,2,4,6,8번방에 값 넣는것
+	}
+	console.log(arData); //배열의 길이는 9임(사이가 비어있을 분 0~8번방이 있기 때문에)
+	for(let i = 0; i<arData.length; i++) {
+		console.log(i,arData[i])// ,로 콘솔에 찍게 되면 둘 사이가 띄어쓰기로 띄어진 채 같이 출력됨
+	}
+	*/
+	//데이터 추가
+	arData.push(10);
+	arData.push(20); 
+	arData.push(30);
+	arData.push(40);
+	arData.push(50);
+	/* console.log(arData); */
+	console.log(arData.pop()); //50 -> 맨 마지막에 있는 값을 삭제하면서 리턴
+	console.log(arData); //[10, 20, 30, 40]
+	console.log(arData.shift()); //10 -> 가장 앞에있는것을 삭제
+	console.log(arData); //[20, 30, 40]
+	
+	/* 
+	배열명.splice(시작인덱스, 지울요소개수, 추가할값1, 추가할값2, ...)
+	추가할 값은 생략 가능 
+	*/
+//	arData.splice(0,3,"Hello"); //0번쨰 방부터 3개를 지우고 "Hello"를 추가해
+	arData.splice(0,0,"Hello","Javascript");
+	console.log(arData);//["Hello","Javascript",20,30,40]
+	
+	let arData1 = [10,20,30];
+	let arData2 = [40,50,60]; 	
+	
+	let arData3 = arData1.concat(arData2);
+	console.log(arData3); //[10,20,30,40,50,60]
+	
+	let data = arData3.join("★");
+	console.log(data); //10★20★30★40★50★60
+	console.log(typeof data); //String
+	
+	let arr = [120, 1, 74, 36, 27, 84, 93, 17, 45, 58, 62];
+	
+	//오름차순 정렬
+	arr.sort(function(a,b){return a-b}); //함수를 마치 익명클래스처럼 넘김 //함수도 하나의 값으로 봄.
+	console.log(arr);
+	//내림차순 정렬
+	arr.sort(function(a,b){return b-a}); 
+	console.log(arr);
+	
+	
+</script>
+</html>
